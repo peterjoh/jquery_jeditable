@@ -452,8 +452,8 @@
             text: {
                 element : function(settings, original) {
                     var input = $('<input />');
-                    if (settings.width  != 'none') { input.attr('width', settings.width);  }
-                    if (settings.height != 'none') { input.attr('height', settings.height); }
+                    if (settings.width  != 'none') { input.css('width', settings.width + 'px');  }
+                    if (settings.height != 'none') { input.css('height', settings.height + 'px'); }
                     /* https://bugzilla.mozilla.org/show_bug.cgi?id=236791 */
                     //input[0].setAttribute('autocomplete','off');
                     input.attr('autocomplete','off');
@@ -481,6 +481,7 @@
             select: {
                element : function(settings, original) {
                     var select = $('<select />');
+                    select.css('width', 'auto');
                     $(this).append(select);
                     return(select);
                 },
