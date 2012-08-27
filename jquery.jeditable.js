@@ -260,6 +260,10 @@
                     if (e.keyCode == 27) {
                         e.preventDefault();
                         reset.apply(form, [settings, self]);
+                    }else if (e.keyCode == 13){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        form.submit();
                     }
                 });
 
@@ -297,8 +301,8 @@
                     }
 
                     /* Do no submit. */
-                    e.preventDefault(); 
-            
+                    e.preventDefault();
+
                     /* Call before submit hook. */
                     /* If it returns false abort submitting. */                    
                     if (false !== onsubmit.apply(form, [settings, self])) { 
